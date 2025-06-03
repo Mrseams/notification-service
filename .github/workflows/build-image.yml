@@ -37,10 +37,9 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          ./mvnw spring-boot:build-image 
+          ./mvnw spring-boot:build-image -DskipTests
 
       - name: Tag as latest and push
         run: |
-          docker tag mrseams/myapp mrseams/myapp:${{ github.sha }}
-        
+          docker tag mrseams/myapp mrseams/myapp:${{github.sha}}
           docker push mrseams/myapp:${{ github.sha }}
