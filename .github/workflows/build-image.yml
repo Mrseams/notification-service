@@ -28,6 +28,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Make mvnw executable
+        run: chmod +x ./mvnw
+
       - name: Build and push Docker image
         run: |
           ./mvnw spring-boot:build-image 
