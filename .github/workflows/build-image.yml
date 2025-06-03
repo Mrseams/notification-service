@@ -41,8 +41,6 @@ jobs:
 
       - name: Tag as latest and push
         run: |
-          docker tag mrseams/myapp:latest
-          docker tag mrseams/myapp:${{ github.sha }}
-          
+          docker tag mrseams/myapp mrseams/myapp:${{ github.sha }}
+        
           docker push mrseams/myapp:${{ github.sha }}
-          docker push mrseams/myapp:latest
